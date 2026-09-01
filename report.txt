@@ -1,0 +1,501 @@
+LINUX, NETWORKING & CLOUD INFRASTRUCTURE
+
+Internship Report
+
+Submitted By: Utkranti Yadav
+GitHub Username: utkranti28
+Module: Module 2
+Duration: Day 6 – Day 10
+Level: Beginner
+Cloud Platform: Amazon Web Services (AWS)
+Operating System: Ubuntu Linux
+
+DECLARATION
+
+I, Utkranti Yadav, declare that this report titled “Linux, Networking & Cloud Infrastructure” has been prepared as part of my internship work. This report presents my understanding of Linux command-line operations, file permissions, users and groups, process management, services, SSH, networking concepts, cloud security, and Linux server deployment.
+
+The practical activities described in this report were performed as part of my learning process. The report has been written in simple language to document the concepts studied and the practical steps followed during the internship.
+
+Student Name: Utkranti Yadav
+
+
+ACKNOWLEDGEMENT
+
+I would like to express my sincere gratitude to my college, teachers, mentors, and internship organization for providing me with the opportunity to learn Linux, networking, and cloud infrastructure.
+
+During this module, I learned how Linux systems are managed using command-line tools and how networking concepts are applied to a cloud server. I also learned about users, groups, file permissions, processes, services, SSH, IP addresses, DNS, ports, firewalls, and security groups.
+
+The practical activity of creating a Linux server using AWS EC2 helped me connect the theoretical concepts with a real cloud environment. I am thankful to everyone who supported and guided me throughout this learning process.
+
+Utkranti Yadav
+
+1. INTRODUCTION
+
+Linux, networking, and cloud infrastructure are important parts of modern computing. Linux is widely used for servers because it is flexible, reliable, and provides powerful command-line tools. Networking allows computers and cloud resources to communicate with each other, while cloud infrastructure provides virtual servers, storage, networks, and other resources through the Internet.
+
+The purpose of this module was to understand the basic administration of a Linux server and learn how to deploy and access a Linux server in a cloud environment.
+
+As part of the practical activity, a Linux virtual machine was created using Amazon EC2. The server was accessed using SSH, basic Linux commands were practiced, networking concepts were explored, and a simple web service was deployed.
+
+2. OBJECTIVES
+
+The main objectives of this module were:
+
+To understand the Linux operating system and command-line interface.
+To learn basic Linux commands for managing files and directories.
+To understand Linux users and groups.
+To learn Linux file permissions.
+To understand processes and process management.
+To learn how Linux services work.
+To understand SSH and SSH keys.
+To learn basic networking concepts.
+To understand IP addresses and DNS.
+To learn about network ports.
+To understand firewalls and security groups.
+To deploy a Linux server using AWS EC2.
+To securely connect to the server using SSH.
+To deploy a basic web service.
+To test connectivity between the server and the client.
+3. INTRODUCTION TO LINUX
+
+Linux is an open-source operating system that is widely used on servers, personal computers, cloud platforms, and embedded systems.
+
+Unlike a graphical operating system where most tasks are performed by clicking buttons, Linux can be managed using a command-line interface. The command line allows users to perform operations such as creating files, managing directories, checking system information, controlling processes, and managing services.
+
+Linux is commonly used in cloud computing because cloud providers offer Linux-based virtual machines that can be configured according to application requirements.
+
+4. LINUX COMMAND LINE INTERFACE
+
+The Linux Command Line Interface, or CLI, allows users to interact with the operating system by typing commands.
+
+Some basic commands learned during this module are:
+
+Command	Purpose
+pwd	Displays the current directory
+ls	Lists files and directories
+cd	Changes the current directory
+mkdir	Creates a directory
+touch	Creates a file
+cp	Copies files
+mv	Moves or renames files
+rm	Removes files
+cat	Displays file contents
+whoami	Shows the current user
+uname -a	Displays system information
+clear	Clears the terminal
+
+For example, the pwd command can be used to find the current location in the Linux file system, while the ls command displays the contents of the current directory.
+
+During the practical activity, these commands were executed on the Linux server to understand basic command-line operations.
+
+
+Figure 1: Basic Linux Commands
+
+5. LINUX FILE AND DIRECTORY OPERATIONS
+
+Linux organizes files and directories in a hierarchical structure. A directory can contain files and other directories.
+
+For example, a directory can be created using:
+
+mkdir cloud
+
+After creating the directory, the user can enter it using:
+
+cd cloud
+
+A file can be created using:
+
+touch test.txt
+
+The contents of a directory can be checked using:
+
+ls
+
+These commands provide a simple way to manage files and directories without using a graphical file manager.
+
+6. LINUX USERS AND GROUPS
+
+Linux supports multiple users. Each user can have different permissions and access to files and resources.
+
+A user represents an individual account on the Linux system. A group is a collection of users. Groups make it easier to manage permissions for multiple users.
+
+The current user can be checked using:
+
+whoami
+
+The groups associated with the current user can be viewed using:
+
+groups
+
+Users and groups are important for system security because they help control which users can access particular resources.
+
+7. LINUX FILE PERMISSIONS
+
+Linux uses permissions to control access to files and directories.
+
+The three basic permissions are:
+
+Read (r) – allows a user to read a file.
+Write (w) – allows a user to modify a file.
+Execute (x) – allows a user to execute a file or access a directory in the appropriate way.
+
+Permissions are generally associated with:
+
+Owner
+Group
+Others
+
+The following command can be used to view permissions:
+
+ls -l
+
+An example of a permission representation is:
+
+-rw-r--r--
+
+Understanding permissions is important because incorrect permissions can allow unauthorized users to access or modify data.
+
+The chmod command can be used to modify permissions.
+
+For example:
+
+chmod 644 example.txt
+
+[INSERT SCREENSHOT OF ls -l AND FILE PERMISSIONS HERE]
+
+Figure 2: Linux File Permissions
+
+8. LINUX PROCESS MANAGEMENT
+
+A process is a program that is currently running on the Linux system.
+
+For example, a web server, terminal session, or background application can run as a process.
+
+The following command can be used to display processes:
+
+ps
+
+Another useful command is:
+
+top
+
+The top command provides a continuously updated view of running processes and resource usage.
+
+Processes have unique identification numbers called Process IDs (PIDs).
+
+Process management is important for monitoring system activity and identifying applications that are using system resources.
+
+
+
+Figure 3: Linux Process Management
+
+9. LINUX SERVICES
+
+A service is a program that normally runs in the background and performs a specific function.
+
+Examples include:
+
+Web servers
+Database servers
+Network services
+System services
+
+On Linux systems using systemd, services can be managed using the systemctl command.
+
+For example:
+
+systemctl status nginx
+
+The service can also be started, stopped, or restarted using appropriate systemctl commands.
+
+During this project, Nginx was used as an example of a Linux web service.
+
+[INSERT SCREENSHOT OF NGINX SERVICE STATUS HERE]
+
+Figure 4: Nginx Service Running on Linux
+
+10. SSH AND SSH KEYS
+
+SSH stands for Secure Shell. It is a protocol used to securely access a remote computer through a network.
+
+In this project, SSH was used to connect from the local computer to the Linux EC2 server.
+
+The basic connection structure is:
+
+Local Computer
+      ↓
+    Internet
+      ↓
+   SSH Connection
+      ↓
+Linux EC2 Server
+
+AWS EC2 commonly uses SSH key pairs for authentication. The key pair consists of a public key and a private key.
+
+The private key must be protected and should never be shared publicly or uploaded to GitHub.
+
+An SSH connection to an Ubuntu server may look similar to:
+
+ssh -i "key-file.pem" ubuntu@PUBLIC_IP
+
+After successful authentication, the terminal changes to a prompt associated with the remote Linux server.
+
+[INSERT SCREENSHOT OF SUCCESSFUL SSH CONNECTION HERE]
+
+Figure 5: SSH Connection to Linux EC2 Server
+
+11. NETWORKING FUNDAMENTALS
+
+Networking allows computers and services to communicate with each other.
+
+In a cloud environment, networking is used to connect users, virtual machines, databases, storage services, and other resources.
+
+Some important networking concepts studied in this module are:
+
+IP addresses
+DNS
+Ports
+Routing
+Firewalls
+Security groups
+Protocols
+
+Understanding these concepts is necessary for deploying and accessing applications on cloud servers.
+
+12. IP ADDRESSING
+
+An IP address is a numerical address used to identify a device or network interface.
+
+There are two major versions:
+
+IPv4
+IPv6
+
+An example of an IPv4 address is:
+
+192.168.1.10
+
+A cloud server can have private and public network addresses depending on its configuration.
+
+On Linux, network information can be viewed using:
+
+ip addr
+
+Routing information can be viewed using:
+
+ip route
+
+These commands should be executed inside the Linux EC2 server.
+
+When I initially tried ip addr and ip route on my Mac, the commands were not available because macOS uses different networking commands. This helped me understand that Linux commands should be tested within the Linux environment when documenting Linux administration.
+
+[INSERT SCREENSHOT OF ip addr HERE]
+
+Figure 6: Linux IP Address Information
+
+[INSERT SCREENSHOT OF ip route HERE]
+
+Figure 7: Linux Routing Information
+
+13. DNS
+
+DNS stands for Domain Name System.
+
+DNS converts human-readable domain names into IP addresses.
+
+For example:
+
+example.com
+     ↓
+    DNS
+     ↓
+IP Address
+
+Without DNS, users would generally need to remember numerical IP addresses to access network services.
+
+DNS is important for websites, cloud applications, email systems, and many other Internet services.
+
+A DNS lookup can be tested using tools such as:
+
+nslookup google.com
+14. NETWORK PORTS
+
+A network port identifies a particular service or type of network communication on a system.
+
+Some commonly used ports are:
+
+Port	Service	Purpose
+22	SSH	Secure remote access
+53	DNS	Domain name resolution
+80	HTTP	Web traffic
+443	HTTPS	Secure web traffic
+
+For this project, port 22 was needed for SSH access and port 80 was needed for HTTP access to the Nginx web server.
+
+15. FIREWALLS
+
+A firewall is a security mechanism that controls network traffic.
+
+It can allow or block traffic according to defined rules.
+
+A simple representation is:
+
+Internet
+   ↓
+Firewall
+   ↓
+Linux Server
+   ↓
+Application
+
+Firewalls help prevent unwanted network access.
+
+When configuring a cloud server, only the required ports should normally be exposed. Opening unnecessary ports can increase security risk.
+
+16. AWS SECURITY GROUPS
+
+AWS Security Groups act as virtual firewalls for supported cloud resources such as EC2 instances.
+
+For this project, the required rules were:
+
+Type	Port	Source	Purpose
+SSH	22	My IP	Secure server access
+HTTP	80	Internet	Access web page
+
+SSH access should preferably be restricted to the user's IP address rather than allowing SSH access from everywhere.
+
+HTTP can be made publicly accessible when the purpose is to test a public web page.
+
+[INSERT SCREENSHOT OF SECURITY GROUP RULES HERE]
+
+Figure 8: EC2 Security Group Inbound Rules
+
+17. LINUX SERVER DEPLOYMENT
+
+The main practical task was to deploy a Linux server in the cloud.
+
+The deployment process followed these stages:
+
+Create EC2 Instance
+        ↓
+Choose Linux OS
+        ↓
+Configure Instance
+        ↓
+Create/Select SSH Key
+        ↓
+Configure Security Group
+        ↓
+Launch Server
+        ↓
+Connect Using SSH
+        ↓
+Configure Linux
+        ↓
+Install Web Service
+        ↓
+Test Connectivity
+
+This process demonstrates how a basic cloud infrastructure environment can be created and configured.
+
+18. EC2 SERVER CONFIGURATION
+
+Amazon EC2 was used to create the Linux virtual machine.
+
+The basic configuration involved selecting:
+
+Instance name
+Linux operating system
+Suitable instance type
+SSH key pair
+Security group
+Network configuration
+
+After launching the instance, I checked that the instance was running and that its status checks had completed successfully.
+
+[INSERT YOUR EC2 INSTANCE SCREENSHOT HERE]
+
+Figure 9: Running Linux EC2 Instance
+
+19. WEB SERVER DEPLOYMENT
+
+To demonstrate service deployment, Nginx was installed on the Linux server.
+
+The package list was first updated using:
+
+sudo apt update
+
+Nginx was then installed using:
+
+sudo apt install nginx -y
+
+After installation, its status was checked using:
+
+sudo systemctl status nginx
+
+If the service is running correctly, the status shows that Nginx is active.
+
+This demonstrates the complete process of installing and running a service on a cloud-based Linux server.
+
+20. CONNECTIVITY TESTING
+
+Connectivity was tested in multiple ways.
+
+First, the Nginx service was tested locally on the Linux server using:
+
+curl http://localhost
+
+This checks whether the web service is responding locally.
+
+The server was then tested externally by opening the EC2 public IP address in a web browser:
+
+http://YOUR_PUBLIC_IP
+
+If the Security Group allows HTTP traffic on port 80 and Nginx is running, the Nginx welcome page should appear.
+
+This confirms that:
+
+Internet
+   ↓
+EC2 Security Group
+   ↓
+Port 80
+   ↓
+Nginx
+   ↓
+Web Page
+
+
+
+Figure 10: Nginx Web Page Accessed Through EC2 Public IP
+22. COMPLETE ARCHITECTURE DIAGRAM
+
+The overall practical architecture can be represented as:
+
+                         INTERNET
+                            |
+                            |
+                      Security Group
+                       /           \
+                    SSH 22        HTTP 80
+                      |              |
+                      ↓              ↓
+                  SSH Access       Nginx
+                      |              |
+                      └──────┬───────┘
+                             ↓
+                       AWS EC2 Server
+                             |
+                             ↓
+                       Ubuntu Linux
+                             |
+             ┌───────────────┼───────────────┐
+             ↓               ↓               ↓
+         Linux CLI       Processes        Services
+             |
+       Files & Permissions
+
+This diagram shows the different parts of the task are connected.
+
+
+
